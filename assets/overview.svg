@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 475" width="1080" height="475" role="img" aria-label="Smart Canteen Overview Diagram">
+  <rect x="0" y="0" width="1080" height="475" fill="#FFFFFF"/>
+  <rect x="8" y="8" width="1064" height="459" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+
+  <text x="540" y="42" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#0F172A">System Overview — smart_canteen_discount.py</text>
+  <text x="540" y="64" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="13" fill="#475569">Conditional decision logic, strict CLI validation, and sequential membership discount billing</text>
+  <line x1="32" y1="78" x2="1048" y2="78" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- ==================== CARD 1: INPUT & VALIDATION ==================== -->
+  <rect x="32" y="96" width="492" height="350" rx="10" fill="#F8FAFC" stroke="#2563EB" stroke-width="2"/>
+  <rect x="32" y="96" width="492" height="52" rx="10" fill="#2563EB"/>
+  <rect x="32" y="136" width="492" height="12" fill="#2563EB"/>
+  <text x="48" y="120" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Stage 1: Input &amp; Validation Guards</text>
+  <text x="48" y="139" font-family="Consolas, Menlo, Courier New, monospace" font-size="10.5" fill="#DBEAFE">smart_canteen_discount.py</text>
+
+  <g font-family="Segoe UI, Arial, Helvetica, sans-serif">
+    <rect x="48" y="164" width="76" height="22" rx="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1"/>
+    <text x="86" y="179" text-anchor="middle" font-size="11" font-weight="700" fill="#4C1D95">TOPIC</text>
+    <text x="136" y="179" font-size="12.5" font-weight="600" fill="#0F172A">Numeric Conversion &amp; Choice Guards</text>
+
+    <rect x="48" y="198" width="76" height="22" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="1"/>
+    <text x="86" y="213" text-anchor="middle" font-size="11" font-weight="700" fill="#1E3A8A">INPUT</text>
+    <text x="136" y="212" font-size="12" fill="#334155">Total bill amount (Rs.) as float</text>
+    <text x="136" y="228" font-size="12" fill="#334155">Membership card status (yes / no)</text>
+
+    <rect x="48" y="246" width="76" height="22" rx="4" fill="#FEE2E2" stroke="#DC2626" stroke-width="1"/>
+    <text x="86" y="261" text-anchor="middle" font-size="11" font-weight="700" fill="#991B1B">RULES</text>
+    <text x="136" y="260" font-size="12" fill="#334155">• Catch ValueError on non-numeric bill input</text>
+    <text x="136" y="277" font-size="12" fill="#334155">• Reject zero, negative, empty, or NaN/inf bills</text>
+    <text x="136" y="294" font-size="12" fill="#334155">• Accept only 'yes' or 'no' (case-insensitive)</text>
+
+    <rect x="48" y="312" width="76" height="22" rx="4" fill="#D1FAE5" stroke="#059669" stroke-width="1"/>
+    <text x="86" y="327" text-anchor="middle" font-size="11" font-weight="700" fill="#065F46">OUTPUT</text>
+    <text x="136" y="326" font-size="12" fill="#334155">Sanitized bill_amount (&gt; 0) &amp; boolean is_member</text>
+    <text x="136" y="343" font-size="12" fill="#334155">(or clear error message with re-prompt)</text>
+
+    <line x1="48" y1="362" x2="508" y2="362" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="48" y="382" font-size="11" font-weight="700" fill="#64748B">CONCEPTS USED</text>
+    <rect x="48" y="394" width="102" height="24" rx="12" fill="#FEE2E2"/>
+    <text x="99" y="410" text-anchor="middle" font-size="11" font-weight="600" fill="#991B1B">try / except</text>
+    <rect x="160" y="394" width="102" height="24" rx="12" fill="#DBEAFE"/>
+    <text x="211" y="410" text-anchor="middle" font-size="11" font-weight="600" fill="#1E3A8A">while Loop</text>
+    <rect x="272" y="394" width="110" height="24" rx="12" fill="#EDE9FE"/>
+    <text x="327" y="410" text-anchor="middle" font-size="11" font-weight="600" fill="#4C1D95">math.isfinite</text>
+    <rect x="392" y="394" width="112" height="24" rx="12" fill="#D1FAE5"/>
+    <text x="448" y="410" text-anchor="middle" font-size="11" font-weight="600" fill="#065F46">strip / lower</text>
+  </g>
+
+  <!-- ==================== CARD 2: DISCOUNT ENGINE & SUMMARY ==================== -->
+  <rect x="556" y="96" width="492" height="350" rx="10" fill="#F8FAFC" stroke="#7C3AED" stroke-width="2"/>
+  <rect x="556" y="96" width="492" height="52" rx="10" fill="#7C3AED"/>
+  <rect x="556" y="136" width="492" height="12" fill="#7C3AED"/>
+  <text x="572" y="120" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Stage 2: Tiered Discounts &amp; Bill Summary</text>
+  <text x="572" y="139" font-family="Consolas, Menlo, Courier New, monospace" font-size="10.5" fill="#EDE9FE">smart_canteen_discount.py</text>
+
+  <g font-family="Segoe UI, Arial, Helvetica, sans-serif">
+    <rect x="572" y="164" width="76" height="22" rx="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1"/>
+    <text x="610" y="179" text-anchor="middle" font-size="11" font-weight="700" fill="#4C1D95">TOPIC</text>
+    <text x="660" y="179" font-size="12.5" font-weight="600" fill="#0F172A">if / elif / else Tiers &amp; Sequential Math</text>
+
+    <rect x="572" y="198" width="76" height="22" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="1"/>
+    <text x="610" y="213" text-anchor="middle" font-size="11" font-weight="700" fill="#1E3A8A">INPUT</text>
+    <text x="660" y="212" font-size="12" fill="#334155">Validated bill_amount &amp; is_member flag</text>
+    <text x="660" y="228" font-size="12" fill="#334155">Tier constants (3000 / 2000 / 1000)</text>
+
+    <rect x="572" y="246" width="76" height="22" rx="4" fill="#FEE2E2" stroke="#DC2626" stroke-width="1"/>
+    <text x="610" y="261" text-anchor="middle" font-size="11" font-weight="700" fill="#991B1B">RULES</text>
+    <text x="660" y="260" font-size="12" fill="#334155">• &gt;=3000: 20% | &gt;=2000: 10% | &gt;=1000: 5% | else: 0%</text>
+    <text x="660" y="277" font-size="12" fill="#334155">• Member gets +5% on amount AFTER standard</text>
+    <text x="660" y="294" font-size="12" fill="#334155">• Show congratulations only if total savings &gt; 0</text>
+
+    <rect x="572" y="312" width="76" height="22" rx="4" fill="#D1FAE5" stroke="#059669" stroke-width="1"/>
+    <text x="610" y="327" text-anchor="middle" font-size="11" font-weight="700" fill="#065F46">OUTPUT</text>
+    <text x="660" y="326" font-size="12" fill="#334155">Aligned Bill Summary (Rs. to 2 decimals):</text>
+    <text x="660" y="343" font-size="12" fill="#334155">original, discounts, total savings &amp; final payable</text>
+
+    <line x1="572" y1="362" x2="1032" y2="362" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="572" y="382" font-size="11" font-weight="700" fill="#64748B">CONCEPTS USED</text>
+    <rect x="572" y="394" width="110" height="24" rx="12" fill="#EDE9FE"/>
+    <text x="627" y="410" text-anchor="middle" font-size="11" font-weight="600" fill="#4C1D95">if / elif / else</text>
+    <rect x="692" y="394" width="106" height="24" rx="12" fill="#DBEAFE"/>
+    <text x="745" y="410" text-anchor="middle" font-size="11" font-weight="600" fill="#1E3A8A">Comparisons</text>
+    <rect x="808" y="394" width="104" height="24" rx="12" fill="#D1FAE5"/>
+    <text x="860" y="410" text-anchor="middle" font-size="11" font-weight="600" fill="#065F46">f-string :.2f</text>
+    <rect x="922" y="394" width="108" height="24" rx="12" fill="#FEF3C7"/>
+    <text x="976" y="410" text-anchor="middle" font-size="11" font-weight="600" fill="#92400E">dict Summary</text>
+  </g>
+</svg>
